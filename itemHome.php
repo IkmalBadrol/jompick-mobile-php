@@ -15,14 +15,14 @@ if ($conn->connect_error) {
 
 // Retrieve user ID from the request
 //  $userID = isset($_GET['user_id']) ? $_GET['user_id'] : null;
-$JomPick_ID = isset($_GET['JomPick_ID']) ? $_GET['JomPick_ID'] : null;
+$JomPick_ID = isset($_GET['JomPick_ID']) ? $_GET['JomPick_ID'] : null;  
 
 if ($JomPick_ID !== null) {
     // Fetch user data based on the user ID
     $sql = "SELECT item_management.item_id, item.name, item_management.registerDate, item_management.confirmation_id,
     item_management.user_id, item_management.JomPick_ID, item_management.dueDate_id,  due_date.dueDate, confirmation.pickUpLocation_id,
     item.trackingNumber, item_type.name AS itemType, item.image, 
-     pickup_location.address, pickup_location.name AS pickUpName, user.fullName, confirmation.pickupType, 
+     pickup_location.address, pickup_location.name AS pickUpName, user.fullName, confirmation.pickupType,
     confirmation.confirmation_id, confirmation.imageProof, confirmation.pickUpDate, confirmation.confirmationStatus_id, confirmation_status.status
     FROM item_management
     INNER JOIN user ON item_management.JomPick_ID = user.JomPick_ID
